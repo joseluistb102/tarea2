@@ -17,18 +17,12 @@ La principal ventaja es que el código será más limpio y legible. HTML y JavaS
 - type: Permite personalizar el tipo del script.
 
 ##### 3. Atributos por defecto
+Como mínimo la etiqueta script debe tener un atributo *type*, que toma por defecto el valor text/javascript.
 
 ##### 4. Atributos booleanos. Qué implican.
-En HTML algunos atributos son booleanos, lo cual implica que pueden ser *true* o *false*. La presencia de un atributo en un elemento representa el valor *true*, mientras que la ausencia del atributo representa el valor *false*.
+Los atributos *nomodule*, *defer* y *async* son atributos booleanos, lo cual implica que pueden ser *true* o *false*. La presencia de un atributo en un elemento representa el valor *true*, mientras que la ausencia del atributo representa el valor *false*.
 
-Podríamos tomar como ejemplo lo siguiente, donde se usan los atributos booleanos *checked* y *disabled* de un label tipo checkbox:
-```html
-<label><input type="checkbox" checked name="ejemplo" disabled>Ejemplo</label>
-```
-Sería lo equivalente a hacer:
-```html
-<label><input type="checkbox" checked="checked" name="ejemplo" disabled="disabled">Ejemplo</label>
-```
+En el caso de los atributos *defer* y *async*, estos indican cómo se evalúa un script. Si no hay ninguno presente, el script se recupera y se evalúa de forma inmediata, bloqueando el análisis del HTML hasta que la recuperación y evaluación del script acabe.
 
 ##### 5. Sitio recomendado para colocar la etiqueta script.
 La forma moderna de hacerlo es colocar la etiqueta script dentro de la etiqueta \<head> y usar los atributos *async* o *defer* (dependiendo de si queremos que el script se ejecute mientras se analiza el HTML o cuando finalice el análisis), de forma que los scripts se descarguen lo antes posible sin bloquear el navegador.
@@ -51,7 +45,7 @@ La etiqueta \<noscript> se utiliza para definir un contenido alternativo que que
 
 La etiqueta soporta los atributos globales en HTML tales como *id*, *class*, *spellcheck* o *accesskey* entre otros.
 
-La etiqueta se puede utilizar dentro de la etiqueta \<head> o dentro de la etiqueta \<body>. Si se utiliza dentro de la etiqueta \<head>, suele afectar a etiquetas como \<link>, \<style> y \<meta>, de forma que permite realizar la carga alternativa de estos elementos en caso de que el navegador no permite la ejecución de scripts.
+La etiqueta se puede utilizar dentro de la etiqueta \<head> o dentro de la etiqueta \<body>. Si se utiliza dentro de la etiqueta \<head>, suele afectar a etiquetas como \<link>, \<style> y \<meta>, de forma que permite realizar la carga alternativa de estos elementos en caso de que el navegador no permita la ejecución de scripts.
 
 Un ejemplo del uso y colocación de la etiqueta \<noscript> puede ser el siguiente:
 ```html
